@@ -1,0 +1,41 @@
+<div class="tableDiv">
+  <h4>Login</h4>
+  <hr />
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <select class="form-control" formControlName="location">
+        <option
+          class="form-control"
+          *ngFor="let location of locations"
+          [value]="location"
+          >{{ location }}</option
+        >
+      </select>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</div>

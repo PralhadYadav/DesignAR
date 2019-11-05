@@ -1,0 +1,42 @@
+<div style="margin-left: 10%;">
+  Your Cart contain Products : {{ numberOfProducts }}
+  <h4>Products</h4>
+</div>
+<div class="tableDiv">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Add</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of Products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+          <button
+            (click)="countProduct(product, 'add')"
+            class="btn btn-primary"
+          >
+            Add
+          </button>
+        </td>
+        <td>
+          <button
+            (click)="countProduct(product, 'remove')"
+            class="btn btn-primary"
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="showProductList()" class="btn btn-primary">
+    Check Out
+  </button>
+</div>
